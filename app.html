@@ -61,16 +61,29 @@
   <!-- Begin page content -->
   <main role="main" class="container mt-5">
     
-      <h1 class="pb-3">Enter in two numbers and print the range</h1>
+      <h1>FizzBuzz Coding Challenge</h1>
+      
+      <p class="pb-3">Enter a start and end to print the range. BONUS: Choose a 'FIZZ' and a 'BUZZ'</p>
       <form action="">
         <div class="form-row">
+          <!-- Start and End Numbers -->
           <div class="col-auto">
             <label for="numOne">Enter start number</label>
             <input type="number" name="numOne" id="numOne" value=1>
           </div>
           <div class="col-auto">
-            <label for="numTwo">Enter second number</label>
+            <label for="numTwo">Enter end number</label>
             <input type="number" name="numTwo" id="numTwo" value=10>
+          </div>
+          
+          <!-- Fizz and Buzz Numbers -->
+          <div class="col-auto">
+            <label for="numFizz">Enter 'Fizz' number</label>
+            <input type="number" name="numFizz" id="numFizz" value=3>
+          </div>
+          <div class="col-auto">
+            <label for="numBuzz">Enter 'Buzz' number</label>
+            <input type="number" name="numBuzz" id="numBuzz" value=5>
           </div>
           <div class="col text-right">
             <button id="submitBtn" type="button" class="btn btn-danger">Submit</button>

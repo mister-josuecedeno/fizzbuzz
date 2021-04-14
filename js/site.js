@@ -1,9 +1,12 @@
-// Separate business logic
-
+// Fizzbuzz
 // Take user input and print numbers to the page
 function printNumbers() {
   let startNum = parseInt(document.getElementById('numOne').value);
   let endNum = parseInt(document.getElementById('numTwo').value);
+  let numFizz = parseInt(document.getElementById('numFizz').value);
+  let numBuzz = parseInt(document.getElementById('numBuzz').value);
+  let numFizzBuzz = numFizz * numBuzz;
+
   let numbers = getRange(startNum, endNum);
 
   displayData(numbers);
