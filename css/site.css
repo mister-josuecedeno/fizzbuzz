@@ -5,7 +5,6 @@
 /* #F2DCC9 */
 /* #0D0D0D */
 
-
 html {
   position: relative;
   min-height: 100%;
@@ -14,13 +13,20 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  
+
   /* background-color: #1D976C; */
 
-  background: #3CA55C;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #B5AC49, #3CA55C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #3ca55c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b5ac49,
+    #3ca55c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b5ac49,
+    #3ca55c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .footer {
@@ -40,10 +46,11 @@ h3,
 h4,
 #logo,
 .fab {
-  color: #FFCD05
+  color: #ffcd05;
 }
 
-p, label {
+p,
+label {
   font-weight: 500;
   font-size: 1.125rem;
 }
@@ -55,8 +62,6 @@ p, label {
 p .fab {
   font-size: 2.5rem;
 }
-
-
 
 /* Change size of Bootstrap badge */
 .badge {
@@ -72,7 +77,7 @@ p .fab {
 .fizzbuzz {
   font-weight: 700;
   color: #ffcd05;
-  background-color: #C82333;
+  background-color: #c82333;
 }
 .fizz {
   font-weight: 700;
@@ -80,19 +85,19 @@ p .fab {
 }
 .buzz {
   font-weight: 700;
-  color: #C82333;
+  color: #c82333;
 }
 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body>.container {
+body > .container {
   padding: 60px 15px 0px;
   /* border: solid; */
 }
 
-.footer>.container {
+.footer > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -101,7 +106,7 @@ code {
   font-size: 80%;
 }
 
-.row>div {
+.row > div {
   margin-bottom: 15px;
 }
 
@@ -156,14 +161,9 @@ code {
 }
 
 .intro {
-  /* background: #7e8aa0; */
   min-height: 250px;
 }
 
 .section {
   min-height: 150px;
-  /* background: #dbdfe5; */
 }
-
-
-
