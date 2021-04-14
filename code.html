@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Coding Challenge</title>
+  <title>FizzBuzz</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -69,48 +69,82 @@
       <div class="row">
         <div class="col">
           <h1 class="mt-5">Code Review</h1>
-          <p>Cleaning the String: Using regex and the replace function, non-characters are stripped for comparison</p>
-          <p>Loop: Using the clean version, the for loop starting at the end of the string creates a new string</p>
-          <p>Comparison: Comparing the cleaned version to the reversed string (plus the clean string length) determines if the string provided is a palindrome </p>
+          <p>printNumbers: (1) Pull form variables, (2) Generate range of numbers, (3) Run FizzBuzz logic.</p>
+          <p>Note: Fizz and Buzz are user defined</p>
+          <p>FizzBuzz: Using modulus, determine if divisible by Fizz * Buzz, Fizz, Buzz</p>
+          
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <pre class="line-numbers"><code class="language-javascript">// See The Code
-function reverseString() {
-  // Get the user's word
-  let userWord = document.getElementById('tacoCat').value;
+          <pre class="line-numbers"><code class="language-javascript">// Fizzbuzz
+// Take user input and print numbers to the page
+function printNumbers() {
+  let startNum = parseInt(document.getElementById('numOne').value);
+  let endNum = parseInt(document.getElementById('numTwo').value);
+  let numFizz = parseInt(document.getElementById('numFizz').value);
+  let numBuzz = parseInt(document.getElementById('numBuzz').value);
+  let numFizzBuzz = numFizz * numBuzz;
 
-  // Replace anything that is not a character or digit
-  const regex = /[^a-z0-9]/gi;
-  let cleanedWord = userWord.replace(regex, '').toLowerCase();
+  let numbers = getRange(startNum, endNum);
 
-  let reverseWord = '';
-  let start = cleanedWord.length - 1;
-
-  for (let i = start; i >= 0; i--) {
-    reverseWord += cleanedWord[i];
-  }
-
-  // Return results
-  let output = document.getElementById('result');
-  let msg = `${userWord} reversed (characters only) is: `;
-  output.innerText = msg + reverseWord;
-
-  // Is this a palindrome
-  let palOutput = document.getElementById('isPalindrome');
-  let isPalindrome = cleanedWord === reverseWord;
-
-  const winner = '&lt;img src="/img/TACOCAT_WINNER.gif" alt="winner"></img>';
-
-  // Must have 2 or more letters
-  if (isPalindrome && cleanedWord.length > 1) {
-    palOutput.innerHTML = `&lt;h3>${userWord} is a palindrome.&lt;/h3>${winner}`;
-  } else {
-    palOutput.innerHTML = `&lt;h3>${userWord} is NOT a palindrome.&lt;/h3>`;
-  }
+  displayData(numbers, numFizz, numBuzz, numFizzBuzz);
 }
-          </code></pre>
+
+// Gets the range of numbers
+function getRange(start, end) {
+  let numberArray = [];
+
+  for (let i = start; i <= end; i++) {
+    numberArray.push(i);
+  }
+
+  return numberArray;
+}
+
+// Displays the numbers on the page
+function displayData(numbers, fizz, buzz, fizzbuzz) {
+  const rowTemplate = document.getElementById('Data-Template');
+  const resultsBody = document.getElementById('resultsBody');
+  let colCount = rowTemplate.content.cloneNode('true').querySelectorAll('td')
+    .length;
+
+  resultsBody.innerHTML = ''; // Clear the table
+
+  // Loop over every element in the numbers array
+  for (let rowIndex = 0; rowIndex < numbers.length; rowIndex += colCount) {
+    // You need to clone it each time
+    let dataRow = rowTemplate.content.cloneNode('true');
+
+    // Return an array of columns
+    let cols = dataRow.querySelectorAll('td');
+
+    for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+      let value = numbers[rowIndex + colIndex];
+
+      // FIZZBUZZ LOGIC
+      // Check if out of bounds
+      if (typeof value === 'undefined') {
+        value = '';
+      } else if (value % fizzbuzz === 0) {
+        value = `FizzBuzz (${value})`;
+        cols[colIndex].classList.add('fizzbuzz');
+      } else if (value % fizz === 0) {
+        value = `Fizz (${value})`;
+        cols[colIndex].classList.add('fizz');
+      } else if (value % buzz === 0) {
+        value = `Buzz (${value})`;
+        cols[colIndex].classList.add('buzz');
+      }
+
+      // TD value is textContent (not like other HTML tags that use value or innerHTML)
+      cols[colIndex].textContent = value;
+    }
+
+    // Inside the row loop (add row to the page)
+    resultsBody.appendChild(dataRow);
+  }
+}</code></pre>
         </div>
       </div>
     </div>

@@ -47,13 +47,13 @@ function displayData(numbers, fizz, buzz, fizzbuzz) {
       if (typeof value === 'undefined') {
         value = '';
       } else if (value % fizzbuzz === 0) {
-        value = 'FizzBuzz';
+        value = `FizzBuzz (${value})`;
         cols[colIndex].classList.add('fizzbuzz');
       } else if (value % fizz === 0) {
-        value = 'Fizz';
+        value = `Fizz (${value})`;
         cols[colIndex].classList.add('fizz');
       } else if (value % buzz === 0) {
-        value = 'Buzz';
+        value = `Buzz (${value})`;
         cols[colIndex].classList.add('buzz');
       }
 
