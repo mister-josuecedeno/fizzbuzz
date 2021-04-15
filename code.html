@@ -70,7 +70,25 @@
   <main role="main">
     <!-- Add HTML later -->
     <div class="container mt-5">
+      
+      <!-- Card -->
       <div class="row">
+        <div class="col">
+          <!-- Try a card -->
+          <div class="card mt-5 shadow">
+            <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
+            <div class="card-body">
+              <h4 class="card-title border-bottom p-1"><i class="fas fa-bolt"></i> Code Review</h4>
+              <p class="card-text">printNumbers: (1) Pull form variables, (2) Generate range of numbers, (3) Run FizzBuzz logic.</p>
+              <p class="card-text">FizzBuzz: Using modulus, determine if divisible by Fizz * Buzz, Fizz, Buzz</p>
+              <p class="card-text">Note: Fizz and Buzz are user defined</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code description -->
+      <!-- <div class="row">
         <div class="col">
           <h1 class="mt-5"><i class="fas fa-bolt"></i> Code Review</h1>
           <p>printNumbers: (1) Pull form variables, (2) Generate range of numbers, (3) Run FizzBuzz logic.</p>
@@ -78,11 +96,14 @@
           <p>Note: Fizz and Buzz are user defined</p>
           
         </div>
-      </div>
+      </div> -->
+
+      <!-- Code -->
       <div class="row">
         <div class="col">
-          <pre class="line-numbers"><code class="language-javascript">// Fizzbuzz
-// Take user input and print numbers to the page
+          
+          <!-- Print Numbers -->
+          <pre class="line-numbers"><code class="language-javascript">// Take user input and print numbers to the page
 function printNumbers() {
   let startNum = parseInt(document.getElementById('numOne').value);
   let endNum = parseInt(document.getElementById('numTwo').value);
@@ -94,8 +115,10 @@ function printNumbers() {
 
   displayData(numbers, numFizz, numBuzz, numFizzBuzz);
 }
+</code></pre>
 
-// Gets the range of numbers
+          <!-- Get Range -->
+          <pre class="line-numbers"><code class="language-javascript">// Gets the range of numbers
 function getRange(start, end) {
   let numberArray = [];
 
@@ -104,9 +127,10 @@ function getRange(start, end) {
   }
 
   return numberArray;
-}
-
-// Displays the numbers on the page
+}</code></pre>
+          
+          <!-- FizzBuzz -->
+          <pre class="line-numbers"><code class="language-javascript">// Displays the numbers on the page
 function displayData(numbers, fizz, buzz, fizzbuzz) {
   const rowTemplate = document.getElementById('Data-Template');
   const resultsBody = document.getElementById('resultsBody');
